@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
@@ -30,9 +29,12 @@ public class Recipe {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	private String name;
 	private String description;
-	private Integer prepTime;
-	private Integer cookTime;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Time prepTime;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Time cookTime;
 	private Integer servings;
 	private String source;
 	private String url;
@@ -70,19 +72,19 @@ public class Recipe {
 		this.description = description;
 	}
 
-	public Integer getPrepTime() {
+	public Time getPrepTime() {
 		return prepTime;
 	}
 
-	public void setPrepTime(Integer prepTime) {
+	public void setPrepTime(Time prepTime) {
 		this.prepTime = prepTime;
 	}
 
-	public Integer getCookTime() {
+	public Time getCookTime() {
 		return cookTime;
 	}
 
-	public void setCookTime(Integer cookTime) {
+	public void setCookTime(Time cookTime) {
 		this.cookTime = cookTime;
 	}
 
@@ -156,6 +158,14 @@ public class Recipe {
 
 	public void setCategories(Set<Category> categories) {
 		this.categories = categories;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

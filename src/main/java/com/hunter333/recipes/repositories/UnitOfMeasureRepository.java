@@ -10,5 +10,5 @@ import com.hunter333.recipes.models.UnitOfMeasure;
  * @date 2.10.2018 г.
  */
 public interface UnitOfMeasureRepository extends CrudRepository<UnitOfMeasure, Long> {
-
+	UnitOfMeasure getUnitOfMeasureByName(String name);
 }

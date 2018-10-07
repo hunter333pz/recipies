@@ -1,7 +1,5 @@
 package com.hunter333.recipes.models;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -22,7 +20,7 @@ public class Ingredient {
 	private Long id;
 
 	private String description;
-	private BigDecimal amount;
+	private Double amount;
 
 	@OneToOne(fetch = FetchType.EAGER)
 	private UnitOfMeasure unitOfMeasure;
@@ -46,11 +44,11 @@ public class Ingredient {
 		this.description = description;
 	}
 
-	public BigDecimal getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
 
@@ -70,4 +68,23 @@ public class Ingredient {
 		this.recipe = recipe;
 	}
 
+	public Ingredient setDescriptionBuilder(String description) {
+		this.description = description;
+		return this;
+	}
+
+	public Ingredient setAmountBuilder(Double amount) {
+		this.amount = amount;
+		return this;
+	}
+
+	public Ingredient setUnitsOfMeasureBuilder(UnitOfMeasure unitOfMeasure) {
+		this.unitOfMeasure = unitOfMeasure;
+		return this;
+	}
+
+	public Ingredient setRecipeBuilder(Recipe recipe) {
+		this.recipe = recipe;
+		return this;
+	}
 }

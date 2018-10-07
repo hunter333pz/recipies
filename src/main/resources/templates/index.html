@@ -2,9 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Recipies Home</title>
+<title>Recipes Home</title>
 </head>
 <body>
-	<h1>My recipies</h1>
+	<h1>My recipes</h1>
+	<table border="1">
+		<tr>
+			<th>Recipe name</th>
+			<th>Description</th>
+			<th>Preparation time</th>
+			<th>Cook time</th>
+			<th>Servings</th>
+			<th>URL</th>
+
+		</tr>
+
+		<tr th:each="recipe : ${recipes}">
+			<td th:text="${recipe.name}" />
+			<td th:text="${recipe.description}" />
+			<td
+				th:text="${recipe.prepTime != null} ? ${recipe.prepTime.timeAmount}+${recipe.prepTime.timeMeasure} : ''" />
+			<td
+				th:text="${recipe.cookTime != null} ? ${recipe.cookTime.timeAmount}+${recipe.prepTime.timeMeasure} : ''" />
+			<td th:text="${recipe.description}" />
+			<td th:text="${recipe.url}" />
+		</tr>
+
+	</table>
+
 </body>
 </html>
