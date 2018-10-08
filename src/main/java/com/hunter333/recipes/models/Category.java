@@ -8,12 +8,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import lombok.Data;
+
 /**
  * 
  * @author Hunter333
  * @date 2.10.2018 г.
  */
 @Entity
+@Data
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,30 +26,6 @@ public class Category {
 
 	@ManyToMany(mappedBy = "categories")
 	private Set<Recipe> recipes;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Set<Recipe> getRecipes() {
-		return recipes;
-	}
-
-	public void setRecipes(Set<Recipe> recipes) {
-		this.recipes = recipes;
-	}
 
 	@Override
 	public int hashCode() {
@@ -69,13 +48,15 @@ public class Category {
 		if (description == null) {
 			if (other.description != null)
 				return false;
-		} else if (!description.equals(other.description))
+		} else if (!description.equals(other.description)) {
 			return false;
+		}
 		if (id == null) {
 			if (other.id != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!id.equals(other.id)) {
 			return false;
+		}
 		return true;
 	}
 

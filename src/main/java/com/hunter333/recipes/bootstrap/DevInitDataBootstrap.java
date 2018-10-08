@@ -231,7 +231,7 @@ public class DevInitDataBootstrap implements ApplicationListener<ContextRefreshe
 		note.setNotes(direction);
 		note.setRecipe(chickenTaco);
 
-		chickenTaco = fillRecipeData(chickenTaco, "Spicy Grilled Chicken Tacos",
+		fillRecipeData(chickenTaco, "Spicy Grilled Chicken Tacos",
 				"Spicy grilled chicken tacos! Quick marinade, then grill. "
 						+ "Ready in about 30 minutes. Great for a quick weeknight dinner, backyard cookouts, and tailgate parties.",
 				new Time().setTimeAmountBuilder(20d).setTimeMeasureBuilder(TimeMeasure.MINUTES),
