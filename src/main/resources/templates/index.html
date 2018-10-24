@@ -3,32 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <title>Recipes Home</title>
+
+<link rel="stylesheet"
+	href="webjars/bootstrap/4.1.3/css/bootstrap.min.css">
+
+<script type="text/javascript" src="webjars/jquery/3.0.0/jquery.min.js"></script>
+
+<script type="text/javascript"
+	src="webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-	<h1>My recipes</h1>
-	<table border="1">
-		<tr>
-			<th>Recipe name</th>
-			<th>Description</th>
-			<th>Preparation time</th>
-			<th>Cook time</th>
-			<th>Servings</th>
-			<th>URL</th>
 
-		</tr>
+	<div class="container-fluid" style="margin-top: 20px">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h1 class="panel-title">My recipes</h1>
+					</div>
+					<div class="panel-body">
+						<table class="table table-hover">
+							<thead class="thead-inverse">
+								<tr>
+									<th>Recipe name</th>
+									<th>Description</th>
+									<th>Preparation time</th>
+									<th>Cook time</th>
+									<th>Servings</th>
+									<th>URL</th>
 
-		<tr th:each="recipe : ${recipes}">
-			<td th:text="${recipe.name}" />
-			<td th:text="${recipe.description}" />
-			<td
-				th:text="${recipe.prepTime != null} ? ${recipe.prepTime.timeAmount}+${recipe.prepTime.timeMeasure} : ''" />
-			<td
-				th:text="${recipe.cookTime != null} ? ${recipe.cookTime.timeAmount}+${recipe.prepTime.timeMeasure} : ''" />
-			<td th:text="${recipe.description}" />
-			<td th:text="${recipe.url}" />
-		</tr>
+								</tr>
+							</thead>
 
-	</table>
+							<tr th:each="recipe : ${recipes}">
+								<td th:text="${recipe.name}" />
+								<td th:text="${recipe.description}" />
+								<td
+									th:text="${recipe.prepTime != null} ? ${recipe.prepTime.timeAmount}+${recipe.prepTime.timeMeasure} : ''" />
+								<td
+									th:text="${recipe.cookTime != null} ? ${recipe.cookTime.timeAmount}+${recipe.prepTime.timeMeasure} : ''" />
+								<td th:text="${recipe.description}" />
+								<td th:text="${recipe.url}" />
+							</tr>
 
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
